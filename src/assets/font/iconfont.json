@@ -1,0 +1,51 @@
+{
+  "id": "4371987",
+  "name": "xs",
+  "font_family": "iconfont",
+  "css_prefix_text": "iconfont-",
+  "description": "喜事金业",
+  "glyphs": [
+    {
+      "icon_id": "577338",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e73a",
+      "unicode_decimal": 59194
+    },
+    {
+      "icon_id": "6684308",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "34452988",
+      "name": "close",
+      "font_class": "close",
+      "unicode": "e839",
+      "unicode_decimal": 59449
+    },
+    {
+      "icon_id": "35359408",
+      "name": "add",
+      "font_class": "add",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "35810414",
+      "name": "chevron-right",
+      "font_class": "chevron-right",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "35810415",
+      "name": "chevron-left",
+      "font_class": "chevron-left",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    }
+  ]
+}

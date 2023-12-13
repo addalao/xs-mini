@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 import {GlobalStore} from "@/global";
 import {goBack} from "@/common/tool/pageHandle";
 import React, {useRef } from 'react'
-import chevronLeft from '../../assets/img/login/chevronLeft.svg'
+import chevronLeft from '../../assets/image/svg/chevronLeft.svg'
 import whiteChevronLeft from '../../assets/img/login/chevronLeftwhite.svg'
 import s from './index.module.scss'
 /**
