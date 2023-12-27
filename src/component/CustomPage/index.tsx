@@ -1,9 +1,10 @@
 
 import { View } from "@tarojs/components"
-import {GlobalStore} from "@/global";
+
 import {ReactNode} from "react"
 import CustomNavBar, {CustomNavBarOptin} from '../CustomNavBar'
 import s from './index.module.scss'
+import {Global} from "@/global";
 
 /**
  * padding-bottom: constant(safe-area-inset-bottom);
@@ -14,13 +15,14 @@ import s from './index.module.scss'
  * @param props 通过穿入自定义navBar的配置和child实现fixed布局，如果不需要fixed
  */
 export default function CustomPage(props:CustomPageProps) {
-    const pageStore = GlobalStore.pageStore
+
+    const pageStore = Global.pageStore
 
     return (
         <View
             className={s.customPage}
             style={{
-                paddingTop:`${props.noPadding?0: pageStore.navBarHeight}px`,
+                paddingTop:`${props.noPadding?0: pageStore.navBarHeight + (props.paddingTop ?? 0)}px`,
                 background:props.background
             }}
         >
@@ -52,6 +54,7 @@ export interface onScrollToLowerProps {
 
 interface CustomPageProps {
     background?: string;
+    paddingTop?:number
     children:ReactNode,
     /**
      * 页面底部填充一般用来适配tabbar

@@ -1,0 +1,111 @@
+.hierarchy {
+    position: relative;
+    z-index: 3;
+    .cost {
+        display: flex;
+        justify-content: flex-end;
+        box-sizing: border-box;
+        padding: 0 15px;
+        .pointsBox {
+            display: flex;
+            flex-direction: column;
+            .costTips {
+                font-size: 14px;
+                color: #783D1D ;
+            }
+            .points {
+                margin-top: 2px;
+                font-size: 18px;
+                font-weight: 600;
+                color: #833C18;
+            }
+        }
+    }
+    .productView {
+
+        height: 270px;
+        width: 100%;
+        //background: red;
+        margin-top: 15px;
+        .imageBox {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            background: white;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            .productImage {
+                border-top-left-radius: 16px;
+                border-top-right-radius: 16px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    //noinspection SassScssUnresolvedVariable
+    .strip {
+        height: 8px;
+        width: 100%;
+        background: $mainBackgroundColor;
+    }
+    .introduceTextBox {
+        background: white;
+        padding: 10px;
+        .title {
+            box-sizing: border-box;
+            padding: 0 10px;
+            font-size: 18px;
+            color: #222222;
+            font-weight: 500;
+            margin-bottom: 13px;
+        }
+        .priceBox {
+            box-sizing: border-box;
+            padding: 0 10px 20px;
+            color: #CC814A;
+            vertical-align: middle;
+            border-bottom: 1px solid #E2E2E2;
+            margin-bottom: 15px;
+            .priceTips {
+                font-size: 10px;
+                color: #898989;
+                vertical-align: middle;
+                margin-right: 6px;
+            }
+            .price {
+                vertical-align: middle;
+                font-size: 16px;
+                margin-right: 3px;
+            }
+            .unit {
+                vertical-align: middle;
+                font-size: 10px;
+            }
+        }
+
+        //noinspection SassScssUnresolvedVariable
+        .contentTitle {
+            box-sizing: border-box;
+            padding: 0 10px;
+            font-size: 14px;
+            color: $maiColor;
+        }
+        .contentBox {
+            word-wrap: break-word;
+            margin-top: 13px;
+            box-sizing: border-box;
+            padding: 0 10px 100px;
+            font-size: 10px;
+            color: #474747;
+        }
+    }
+}
+.bk {
+    position: absolute;
+    //z-index: -1;
+    width: 100%;
+    top: 0;
+    height: 229px;
+}

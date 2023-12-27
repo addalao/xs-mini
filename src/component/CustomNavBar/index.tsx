@@ -1,20 +1,17 @@
-import { View ,Image,Text} from "@tarojs/components";
+import { View ,Text} from "@tarojs/components";
 import Taro from '@tarojs/taro'
-import {GlobalStore} from "@/global";
 import {goBack} from "@/common/tool/pageHandle";
 import React, {useRef } from 'react'
-import chevronLeft from '../../assets/image/svg/chevronLeft.svg'
-import whiteChevronLeft from '../../assets/img/login/chevronLeftwhite.svg'
 import s from './index.module.scss'
+import MyIcon from "@/component/MyIcon";
+import {Global} from "@/global";
+// import {BackIcon} from "@/component/BackIcon";
 /**
  * 自定义navBar
- * navBar 高度固定为 GlobalStore.PageStore.navBarHeight
- * @param optin 自定义选项
- * @returns
  */
 export default React.memo(
     function CustomNavBar (optin:CustomNavBarOptin){
-        const pageStore = GlobalStore.pageStore
+        const pageStore = Global.pageStore
         const BoundingInfo = Taro.getMenuButtonBoundingClientRect() //胶囊体信息
         const navBar = useRef()
 
@@ -35,7 +32,7 @@ export default React.memo(
                     paddingTop:`${BoundingInfo.top}px`,
                     height:`${pageStore.navBarHeight}px`,
                     position:`${optin.fixed?'fixed':'relative'}`,
-                    background:`${optin.color ?? process.env.MAIN_BACKGROUND_COLOR}`,
+                    background:`${optin.color ?? process.env.TARO_APP_MAIN_BACKGROUND_COLOR}`,
                     zIndex:`${optin.fixed?'20':'10'}`
                 }}
             >
@@ -47,15 +44,10 @@ export default React.memo(
                 >
                     {
                         (optin.isReturnArrow == undefined &&optin.CustomFun == undefined ) &&
-                        (
-                            optin.whiteText == undefined?
-                            <Image style={{
-                                color:optin.titleColor?optin.titleColor:'black'
-                             }} onClick={back} className={s.chevronLeft} src={chevronLeft} />:
-                             <Image style={{
-                                color:optin.titleColor?optin.titleColor:'black'
-                             }} onClick={back} className={s.chevronLeft} src={whiteChevronLeft} />
-                        )
+
+                        <MyIcon className={s.arrowIcon} onClick={back} style={{
+                            color:optin.titleColor?optin.titleColor:'black'
+                        }} iconName='iconfont-chevron-left' />
                     }
                     {
                         (optin.title != undefined  && optin.CustomFun == undefined) &&
@@ -115,8 +107,4 @@ export interface CustomNavBarOptin {
      * 标题颜色
      */
     titleColor?: string
-    /**
-     * 返回箭头是否需要白色
-     */
-    whiteText?: boolean
 }

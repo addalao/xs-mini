@@ -1,10 +1,13 @@
 import {PageStore} from "@/globalMobx/PageStore";
+import {Auth} from "@/globalStore/auth";
 
-export class GlobalStore {
+
+/**
+ * 全局状态
+ */
+export class Global {
 
     static pageStore = new PageStore()
-}
 
-export class GlobalSub {
-
+    static auth = new Auth()
 }

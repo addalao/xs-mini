@@ -1,0 +1,64 @@
+.topBar {
+    position: fixed;
+    right: 0;
+    left: 0;
+    height: 38px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    .barItem {
+        display: flex;
+        flex-direction: column;
+        .name {
+            color: #A9AEB5;
+            font-size: 14px;
+        }
+
+        //noinspection SassScssUnresolvedVariable
+        .activeName {
+            color: $maiColor;
+        }
+
+        //noinspection SassScssUnresolvedVariable
+        .bar {
+            margin-top:9px ;
+            width: 0;
+            height: 2px;
+            border-radius: 3px;
+            background: $maiColor;
+            transition: 0.3s;
+
+        }
+        .activeBar {
+            width: 100%;
+        }
+    }
+}
+
+.orderItemBox {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    .orderIdBox {
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        .idBox {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 8px 10px;
+            border-bottom: 1px solid #E8E8EA;
+            justify-content: space-between;
+            .time {
+                color: #555555;
+                font-size: 14px;
+            }
+            .orderId {
+                color: #A9AEB5;
+                font-size: 12px;
+            }
+        }
+    }
+}

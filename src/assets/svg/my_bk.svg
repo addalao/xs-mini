@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="229px" viewBox="0 0 375 229" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>背景</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="375" height="229"></rect>
+        <filter x="-19.2%" y="-19.2%" width="138.5%" height="138.5%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="25" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <circle id="path-4" cx="81.5" cy="2" r="171.5"></circle>
+        <filter x="-0.3%" y="-0.3%" width="100.6%" height="100.6%" filterUnits="objectBoundingBox" id="filter-5">
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+            <feOffset dx="1" dy="1" in="shadowSpreadInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <circle id="path-6" cx="365" cy="123" r="65"></circle>
+        <filter x="-0.8%" y="-0.8%" width="101.5%" height="101.5%" filterUnits="objectBoundingBox" id="filter-7">
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+            <feOffset dx="1" dy="1" in="shadowSpreadInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="小程序" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="背景">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="蒙版" fill="#FFF5EE" xlink:href="#path-1"></use>
+            <circle id="椭圆形备份-2" fill="#7CB79C" opacity="0.298719279" filter="url(#filter-3)" mask="url(#mask-2)" cx="225" cy="50.5" r="195"></circle>
+            <g id="椭圆形" opacity="0.3" mask="url(#mask-2)">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+            </g>
+            <g id="椭圆形备份" opacity="0.2" mask="url(#mask-2)">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-6"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+            </g>
+        </g>
+    </g>
+</svg>

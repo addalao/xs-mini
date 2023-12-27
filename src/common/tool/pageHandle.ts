@@ -5,7 +5,7 @@ export function goBack(){
         Taro.navigateBack()
     }else {
         Taro.switchTab({
-            url:'/pages/resetIndex/index'
+            url:'/pages/index/index'
         })
     }
 }

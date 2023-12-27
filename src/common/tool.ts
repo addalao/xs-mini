@@ -1,7 +1,6 @@
 import Taro from '@tarojs/taro'
 
 
-
 /**
  * 付钱方式
  */
@@ -30,37 +29,37 @@ export function getCostMethod(type:number):string{
  * 返回用户是否同意了隐私授权
  * 如果编译器提示Taro.getPrivacySetting 不存在，请忽略
  */
-export function getPrivacySetting(){
-    return new Promise<boolean>((resolve,reject)=>{
-        // getPrivacySetting
-        Taro.getPrivacySetting({
-            success:(e)=>{
-                resolve(!e.needAuthorization)
-            },
-            fail:(e)=>{
-                reject(e)
-            }
-        })
-    })
-}
-
-/**
- * 弹出隐私协议弹窗，返回用户是否同意
- * 如果编译器提示 Taro.requirePrivacyAuthorize 不存在，请忽略
- */
-export function requirePrivacyAuthorize(){
-    return new Promise<boolean>((resolve, reject)=>{
-        Taro.requirePrivacyAuthorize({
-            success:()=>{
-                resolve(true)
-            },
-            fail:(e)=>{
-                reject(e)
-            }
-        })
-    })
-
-}
+// export function getPrivacySetting(){
+//     return new Promise<boolean>((resolve,reject)=>{
+//         // getPrivacySetting
+//         Taro.getPrivacySetting({
+//             success:(e)=>{
+//                 resolve(!e.needAuthorization)
+//             },
+//             fail:(e)=>{
+//                 reject(e)
+//             }
+//         })
+//     })
+// }
+//
+// /**
+//  * 弹出隐私协议弹窗，返回用户是否同意
+//  * 如果编译器提示 Taro.requirePrivacyAuthorize 不存在，请忽略
+//  */
+// export function requirePrivacyAuthorize(){
+//     return new Promise<boolean>((resolve, reject)=>{
+//         Taro.requirePrivacyAuthorize({
+//             success:()=>{
+//                 resolve(true)
+//             },
+//             fail:(e)=>{
+//                 reject(e)
+//             }
+//         })
+//     })
+//
+// }
 
 export function getRandomNumber() {
     // 生成一个介于0和1之间的随机小数
@@ -418,12 +417,10 @@ export interface FormatNumber {
 
 
 /**
- * 返回是否包含汉字
- * @param text 需要判断的字符串
- * @returns
+ * 返回是否包含中文汉字
  */
 export function containsChinese(text:string) {
-    var regex = /[\u4e00-\u9fa5]/; // 匹配汉字的正则表达式
+    const regex = /[\u4e00-\u9fa5]/; // 匹配汉字的正则表达式
     return regex.test(text);
 }
 
