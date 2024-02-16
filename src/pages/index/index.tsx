@@ -8,16 +8,18 @@ import {Global} from "@/global";
 import MyIcon from "@/component/MyIcon";
 import Taro from "@tarojs/taro";
 import {CommodityList} from "src/component/CommodityList";
-import {CommodityListMobx} from "@/component/CommodityList/CommodityListMobx";
+import { RequestGetItem } from "@/component/RequestItem/RequestItem";
 
 /**
  * 首页
  */
 export default function Index() {
 
-    const mobx = new CommodityListMobx();
+    const listMobx = new RequestGetItem('');
+
+
     useEffect(()=>{
-        mobx.getItem().then()
+        listMobx.getItems().then()
     },[])
     return (
         <CustomPage
@@ -47,7 +49,7 @@ export default function Index() {
             <PageScrollView
                 paddingTop={40}
             >
-                <CommodityList commodityMobx={mobx} />
+                {/* <CommodityList commodityMobx={mobx} /> */}
             </PageScrollView>
         </CustomPage>
     )

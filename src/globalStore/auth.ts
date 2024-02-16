@@ -2,7 +2,6 @@ import {makeAutoObservable} from "mobx";
 import {AppletLoginRes, AppletUserItem} from "@/api/ts/weChartComponents";
 import Taro from "@tarojs/taro";
 import {Global} from "@/global";
-import {getUserInformation} from "@/api/appletuser";
 
 /**
  * 本地持久化数据
@@ -13,6 +12,7 @@ export enum AuthName {
     information = 'information'
 }
 
+/// 用户个人权限数据
 export class Auth {
     constructor() {
         this.setInformation = this.setInformation.bind(this)
@@ -41,16 +41,7 @@ export class Auth {
     information?:AppletUserItem = Taro.getStorageSync(AuthName.information)? JSON.parse(Taro.getStorageSync(AuthName.information)):undefined
 
     async setInformation(){
-        try {
-            const res = await getUserInformation()
-
-            this.information = res;
-
-            Taro.setStorageSync(AuthName.information,JSON.stringify(res))
-
-        }catch {
-
-        }
+        
     }
 
     /**

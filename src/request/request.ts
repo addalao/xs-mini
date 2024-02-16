@@ -2,14 +2,7 @@ import Taro from "@tarojs/taro";
 import {containsChinese} from "@/common/tool";
 import {Global} from "@/global";
 
-/**
- * 请求对象 149
- */
-export class Requset {
-    static v1 = request
-}
-
-interface requestProps<T> {
+interface RequestProps<T> {
     url:string
     method?: keyof Taro.request.Method,
     data?:T,
@@ -21,7 +14,7 @@ function request<D,T = any>({
     method = "POST",
     data,
     // versions
-}:requestProps<T>){
+}:RequestProps<T>){
 
     return new Promise<D>((resolve, reject)=>{
 
@@ -64,3 +57,114 @@ function request<D,T = any>({
     })
 
 }
+
+
+/**
+ * 请求方法封装，需要使用未封装的方法请自己添加
+ */
+class VersionsRequset {
+    constructor(public versions:string){
+        
+    }
+
+    async post<D,T = any>({
+        data,
+        url
+    }:BaseRequsetProps<T>){
+        return await request<D,T>({
+            url,
+            data,
+            method:'POST',
+            versions:this.versions
+        })
+    }
+
+    async get<D,T = any>({
+        data,
+        url
+    }:BaseRequsetProps<T>){
+        return await request<D,T>({
+            url,
+            data,
+            method:'GET',
+            versions:this.versions
+        })
+    }
+
+    async delete<D,T = any>({
+        data,
+        url,
+        id
+    }:IdRequsetProps<T>){
+
+        let deleteUrl = url;
+
+        if(url !== undefined){
+            deleteUrl = url + '/' + id
+        }
+
+        return await request<D,T>({
+            url:deleteUrl,
+            data,
+            method:'DELETE',
+            versions:this.versions
+        })
+    }
+
+    async patch<D,T = any>({
+        data,
+        url,
+        id
+    }:IdRequsetProps<T>){
+
+        let patchUrl = url;
+
+        if(url !== undefined){
+            patchUrl = url + '/' + id
+        }
+
+        return await request<D,T>({
+            url:patchUrl,
+            data,
+            method:'PATCH',
+            versions:this.versions
+        })
+    }
+
+    async put<D,T = any>({
+        data,
+        url,
+        id
+    }:IdRequsetProps<T>){
+
+        let puthUrl = url;
+
+        if(url !== undefined){
+            puthUrl = url + '/' + id
+        }
+
+        return await request<D,T>({
+            url:puthUrl,
+            data,
+            method:'PUT',
+            versions:this.versions
+        })
+    }
+   
+}
+interface BaseRequsetProps<T> {
+    data?:T,
+    url:string
+}
+
+interface IdRequsetProps<T> extends BaseRequsetProps<T> {
+    id?:string
+}
+
+/**
+ * 请求对象
+ */
+export class Requset {
+    static v1 = new VersionsRequset('v1');
+}
+

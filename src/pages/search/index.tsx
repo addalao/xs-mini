@@ -4,10 +4,9 @@ import {CustomFunProps} from "@/component/CustomNavBar";
 import {Input, View} from "@tarojs/components";
 import  s from './index.module.scss'
 import {PageScrollView} from "@/component/PageScrollView";
-import {debounce} from "@/common/tool";
-import {runInAction} from "mobx";
-import {CommodityList} from "src/component/CommodityList";
-import {CommodityListMobx} from "@/component/CommodityList/CommodityListMobx";
+// import {debounce} from "@/common/tool";
+// import {runInAction} from "mobx";
+// import {CommodityList} from "src/component/CommodityList";
 import {BackIcon} from "@/component/BackIcon";
 
 interface SearchCustomFunProps extends CustomFunProps {
@@ -20,22 +19,22 @@ interface SearchCustomFunProps extends CustomFunProps {
  */
 export default function Search(){
 
-    const mobx = new CommodityListMobx();
 
-    let search = debounce({
-        fn:async (v:string)=>{
-            if(v.trim().length == 0){
-                runInAction(()=>{
-                    mobx.items = []
-                    mobx.filter = ''
-                })
-                return;
-            }
-            await mobx.search(v);
-        },
-        isFirstTime:false,
-        time:300
-    })
+
+    // let search = debounce({
+    //     fn:async (v:string)=>{
+    //         if(v.trim().length == 0){
+    //             runInAction(()=>{
+    //                 mobx.items = []
+    //                 mobx.filter = ''
+    //             })
+    //             return;
+    //         }
+    //         await mobx.search(v);
+    //     },
+    //     isFirstTime:false,
+    //     time:300
+    // })
 
     const SearchCustomFun:React.FC<SearchCustomFunProps> = ({
         rightDistance
@@ -49,8 +48,8 @@ export default function Search(){
 
                 </View>
                 <View className={s.search}>
-                    <Input onInput={(e)=>{
-                        search && search(e.detail.value)
+                    <Input onInput={()=>{
+                        // search && search(e.detail.value)
                     }} placeholder='输入关键词搜索' className={s.searchInput} />
                 </View>
 
@@ -62,7 +61,7 @@ export default function Search(){
     useEffect(()=>{
 
        return ()=>{
-           search = undefined;
+        //    search = undefined;
        }
     },[])
 
@@ -76,7 +75,6 @@ export default function Search(){
             }}
         >
             <PageScrollView>
-                <CommodityList orderMobx={mobx} />
             </PageScrollView>
         </CustomPage>
     )

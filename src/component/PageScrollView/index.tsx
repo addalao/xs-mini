@@ -10,7 +10,7 @@ type awaitFunction = (event: BaseEventOrig)=>Promise<any>
 
 interface PageScrollViewProps {
     mobx?:PageScrollViewMobx,
-    children:ReactNode,
+    children?:ReactNode,
     /**
      * 刷新区域背景颜色
      */
